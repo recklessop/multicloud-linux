@@ -70,20 +70,22 @@ else
     rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 fi
 
-echo "${yellow}Adding Ngompa's Netplan epel repo...{$reset}"
+echo "${yellow}Adding Ngompa's Netplan epel repo...${reset}"
+curl -o netplan.repo https://copr.fedorainfracloud.org/coprs/ngompa/Netplan/repo/epel-7/ngompa-Netplan-epel-7.repo
+mv netplan.repo /etc/yum.repos.d/
 
-cat > /etc/yum.repos.d/netplan.repo <<EOF
-[ngompa-Netplan]
-name=Copr repo for Netplan owned by ngompa
-baseurl=https://copr-be.cloud.fedoraproject.org/results/ngompa/Netplan/epel-7-\$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/ngompa/Netplan/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1cd
-EOF
+#cat > /etc/yum.repos.d/netplan.repo <<EOF
+#[ngompa-Netplan]
+#name=Copr repo for Netplan owned by ngompa
+#baseurl=https://copr-be.cloud.fedoraproject.org/results/ngompa/Netplan/epel-7-\$basearch/
+#type=rpm-md
+#skip_if_unavailable=True
+#gpgcheck=1
+#gpgkey=https://copr-be.cloud.fedoraproject.org/results/ngompa/Netplan/pubkey.gpg
+#repo_gpgcheck=0
+#enabled=1
+#enabled_metadata=1cd
+#EOF
 
 echo "${green}Phase 3 - Install Required Packages${reset}"
 echo "${yellow}Installing dependencies${reset}"
