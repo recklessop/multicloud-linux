@@ -92,7 +92,7 @@ echo "${yellow}Installing dependencies${reset}"
 yum install python34 python34-PyYAML git -y
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-echo "${yellow}Installing Netplan and systemd-networkd and systemd-resolved{$reset}"
+echo "${yellow}Installing Netplan and systemd-networkd and systemd-resolved${reset}"
 yum install netplan systemd-networkd systemd-resolved -y
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
@@ -141,12 +141,12 @@ echo "${yellow}Running update-grub${reset}"
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 echo "${green}Congrats your system has been prepared!"
-echo "${red}!Please! edit /etc/netplan/50-vmware-static.yaml with the correct mac address and ip information before doing anything else!!!{$reset}"
+echo "${red}!Please! edit /etc/netplan/50-vmware-static.yaml with the correct mac address and ip information before doing anything else!!!${reset}"
 echo " "
-echo "${yellow}Once you have edited your on-premises YAML config you need to run the following commands as root (or sudo)\n
-sudo netplan --debug generate\n
-sudo netplan --debug apply\n
-\n
+echo "${yellow}Once you have edited your on-premises YAML config you need to run the following commands as root (or sudo)
+sudo netplan --debug generate
+sudo netplan --debug apply
+
 Failing to do this means your machine will get a bogus 172.16.1.x address.${reset}"
 
 
