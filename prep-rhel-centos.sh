@@ -110,6 +110,7 @@ rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 echo "${green}Phase 4 - Get example netplan yaml files${reset}"
 cd $(get_script_dir)
 git clone https://github.com/recklessop/netplancfg.git $PWD/netplancfg 
+rm $PWD/netplancfg/ubuntu/50-vmware-static.yaml
 cp $PWD/netplancfg/ubuntu/*.yaml /etc/netplan/
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
