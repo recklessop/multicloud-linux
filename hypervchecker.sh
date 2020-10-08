@@ -1,5 +1,5 @@
 #!/bin/bash
-SERIAL=`dmidecode -s system-serial-number`
+SYSSERIAL=`dmidecode -s system-serial-number`
 BOARDSERIAL=`dmidecode -s baseboard-serial-number`
 ASSETTAG=`dmidecode -s chassis-asset-tag`
 
